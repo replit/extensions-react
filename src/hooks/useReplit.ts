@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useMemo } from "react";
 import { HandshakeStatusAtom } from "src/state";
-import replit, { init, me, HandshakeStatus } from "@replit/extensions";
+import { init, me, HandshakeStatus } from "@replit/extensions";
+import * as replit from "@replit/extensions";
 import { useAtom } from "jotai";
 import { UseReplitFailure, UseReplitLoading, UseReplitReady } from "src/types";
 
