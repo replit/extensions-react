@@ -1,6 +1,6 @@
 {
   "name": "@replit/extensions-react",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "exports": {
     "./package.json": "./package.json",
