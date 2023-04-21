@@ -1,6 +1,6 @@
 {
   "name": "@replit/extensions-react",
-  "version": "0.34.0",
+  "version": "0.0.1",
   "description": "",
   "exports": {
     "./package.json": "./package.json",
@@ -20,7 +20,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -rf dist && tsup src/index.ts  --sourcemap --dts --format esm,cjs,iife --global-name replit",
     "lint": "npx prettier --write src/* && cd example && npx prettier --write .",
-    "lint:check": "npx prettier -l src/* && cd example && npx prettier -l .",
+    "lint:check": "npx prettier -l src/*",
     "type:check": "tsc --noEmit",
     "dev": "npm run build && cd ./example && npx vite",
     "prepublishOnly": "npm run build"
@@ -36,10 +36,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@codemirror/state": "^6.2.0",
     "@replit/extensions": "^0.35.0",
     "@types/react": "^18.0.28",
-    "comlink": "^4.3.1",
     "jotai": "^2.0.4"
   },
   "devDependencies": {
