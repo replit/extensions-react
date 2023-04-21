@@ -1,0 +1,62 @@
+{
+  "name": "@replit/extensions-react",
+  "version": "0.34.0",
+  "description": "",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": {
+        "default": "./dist/index.js"
+      },
+      "default": "./dist/index.cjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "unpkg": "dist/index.global.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf dist && tsup src/index.ts  --sourcemap --dts --format esm,cjs,iife --global-name replit",
+    "lint": "npx prettier --write src/* && cd example && npx prettier --write .",
+    "lint:check": "npx prettier -l src/* && cd example && npx prettier -l .",
+    "type:check": "tsc --noEmit",
+    "dev": "npm run build && cd ./example && npx vite",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "dist/*"
+  ],
+  "keywords": [
+    "replit",
+    "extensions",
+    "react"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@codemirror/state": "^6.2.0",
+    "@replit/extensions": "^0.35.0",
+    "@types/react": "^18.0.28",
+    "comlink": "^4.3.1",
+    "jotai": "^2.0.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^2.0.1",
+    "esbuild": "^0.15.18",
+    "prettier": "^2.7.1",
+    "react": "^18.2.0",
+    "tsup": "^6.6.3",
+    "typescript": "^4.9.3"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "@replit/extensions": ">=0.35.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  }
+}
