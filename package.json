@@ -51,10 +51,5 @@
   "peerDependencies": {
     "react": ">=17.0.0",
     "@replit/extensions": ">=0.35.0"
-  },
-  "peerDependenciesMeta": {
-    "react": {
-      "optional": true
-    }
   }
 }
