@@ -1,15 +1,14 @@
 import { useState, useEffect, useRef, useMemo } from "react";
-import { HandshakeStatusAtom } from "src/state";
-import { init, me, HandshakeStatus } from "@replit/extensions";
-import * as replit from "@replit/extensions";
-import { useAtom } from "jotai";
-import { UseReplitFailure, UseReplitLoading, UseReplitReady } from "src/types";
+import { getHandshakeStatus } from "src/state";
+import { HandshakeStatus } from "@replit/extensions";
+import * as replit from '@replit/extensions'
+import { UseReplitReady, UseReplitFailure, UseReplitLoading } from "src/types";
 
 /**
  * A React hook that initializes and passes the Replit API wrapper to a component.
  */
 export function useReplit() {
-  const [status, setStatus] = useAtom(HandshakeStatusAtom);
+  const [status, setStatus] = useState<HandshakeStatus>(getHandshakeStatus());
   const [error, setError] = useState<Error | null>(null);
   const [filePath, setFilePath] = useState<string | null>(null);
   const runRef = useRef(0);
@@ -29,8 +28,8 @@ export function useReplit() {
 
     (async () => {
       try {
-        dispose = (await init()).dispose;
-        setFilePath(await me.filePath());
+        dispose = (await replit.init()).dispose;
+        setFilePath(await replit.me.filePath());
         setStatus(HandshakeStatus.Ready);
       } catch (e) {
         setError(e as Error);
@@ -41,7 +40,7 @@ export function useReplit() {
     return () => {
       dispose?.();
     };
-  }, [status, runRef]);
+  }, []);
 
   return useMemo(() => {
     if (status === HandshakeStatus.Ready) {

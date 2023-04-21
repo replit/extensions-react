@@ -1,6 +1,9 @@
-import { atom } from "jotai";
 import { HandshakeStatus } from "@replit/extensions";
 
-export const HandshakeStatusAtom = atom<HandshakeStatus>(
-  HandshakeStatus.Loading
-);
+let handshakeStatus: HandshakeStatus = HandshakeStatus.Loading;
+
+export const setHandshakeStatus = (status: HandshakeStatus) => {
+  handshakeStatus = status;
+};
+
+export const getHandshakeStatus = () => handshakeStatus;
