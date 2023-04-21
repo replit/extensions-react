@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useMemo } from "react";
 import { HandshakeStatusAtom } from "src/state";
-import * as replit from "@replit/extensions";
+import replit, { init, me, HandshakeStatus } from "@replit/extensions";
 import { useAtom } from "jotai";
 import { UseReplitFailure, UseReplitLoading, UseReplitReady } from "src/types";
 
@@ -20,7 +20,7 @@ export function useReplit() {
     }
     runRef.current += 1;
 
-    if (status === replit.HandshakeStatus.Ready) {
+    if (status === HandshakeStatus.Ready) {
       return;
     }
 
@@ -28,12 +28,12 @@ export function useReplit() {
 
     (async () => {
       try {
-        dispose = (await replit.init()).dispose;
-        setFilePath(await replit.me.filePath());
-        setStatus(replit.HandshakeStatus.Ready);
+        dispose = (await init()).dispose;
+        setFilePath(await me.filePath());
+        setStatus(HandshakeStatus.Ready);
       } catch (e) {
         setError(e as Error);
-        setStatus(replit.HandshakeStatus.Error);
+        setStatus(HandshakeStatus.Error);
       }
     })();
 
@@ -43,9 +43,9 @@ export function useReplit() {
   }, [status, runRef]);
 
   return useMemo(() => {
-    if (status === replit.HandshakeStatus.Ready) {
+    if (status === HandshakeStatus.Ready) {
       return { status, error, filePath, replit } as UseReplitReady;
-    } else if (status === replit.HandshakeStatus.Error) {
+    } else if (status === HandshakeStatus.Error) {
       return { status, error, filePath, replit: null } as UseReplitFailure;
     } else {
       return { status, error, filePath, replit: null } as UseReplitLoading;

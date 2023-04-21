@@ -18,7 +18,7 @@
   "unpkg": "dist/index.global.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf dist && tsup src/index.ts  --sourcemap --dts --format esm,cjs,iife --global-name replit",
+    "build": "rm -rf dist && tsup src/index.ts  --sourcemap --dts --format esm,cjs --global-name replit",
     "lint": "npx prettier --write src/* && cd example && npx prettier --write .",
     "lint:check": "npx prettier -l src/*",
     "type:check": "tsc --noEmit",
