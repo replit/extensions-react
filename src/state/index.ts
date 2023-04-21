@@ -1,9 +1,10 @@
 import { HandshakeStatus } from "@replit/extensions";
+import { createContext } from "react";
+import { UseReplitFailure, UseReplitLoading, UseReplitReady } from "src/types";
 
-let handshakeStatus: HandshakeStatus = HandshakeStatus.Loading;
-
-export const setHandshakeStatus = (status: HandshakeStatus) => {
-  handshakeStatus = status;
-};
-
-export const getHandshakeStatus = () => handshakeStatus;
+export const ReplitContext = createContext<UseReplitFailure | UseReplitLoading | UseReplitReady>({
+  status: HandshakeStatus.Loading,
+  error: null,
+  filePath: null,
+  replit: null,
+});
