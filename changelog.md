@@ -1,0 +1,7 @@
+### 0.1.0-beta.0
+
+ - Trying things out with the `<HandshakeProvider>` component, added doc strings to the rest of the components.
+
+### 0.0.1
+
+ - Still a work in progress

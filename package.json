@@ -1,6 +1,6 @@
 {
   "name": "@replit/extensions-react",
-  "version": "0.0.2",
+  "version": "0.1.0-beta.0",
   "description": "",
   "exports": {
     "./package.json": "./package.json",
@@ -23,7 +23,7 @@
     "lint:check": "npx prettier -l src/*",
     "type:check": "tsc --noEmit",
     "dev": "npm run build && cd ./example && npx vite",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "tsc --noEmit && npm run lint:check && npm run build"
   },
   "files": [
     "dist/*"
