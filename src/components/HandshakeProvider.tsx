@@ -4,6 +4,9 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { ReplitContext } from "src/state";
 import { UseReplitFailure, UseReplitLoading, UseReplitReady } from "src/types";
 
+/**
+ * Provides and rstablishes the initial handshake with the Replit workspace.
+ */
 export function HandshakeProvider({ children }: { children: React.ReactNode }) {
   const [status, setStatus] = useState<HandshakeStatus>(
     HandshakeStatus.Loading
