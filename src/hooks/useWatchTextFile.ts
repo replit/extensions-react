@@ -1,31 +1,15 @@
 import React from "react";
 import { WriteChange, UseWatchTextFileStatus } from "@replit/extensions";
 import { useReplit } from "./useReplit";
+import {
+  UseWatchTextFileErrorLike,
+  UseWatchTextFileLoading,
+  UseWatchTextFileWatching,
+} from "src/types";
 
-export interface UseWatchTextFileLoading {
-  status: UseWatchTextFileStatus.Loading;
-  content: null;
-  watchError: null;
-  writeChange: null;
-}
-
-export interface UseWatchTextFileWatching {
-  status: UseWatchTextFileStatus.Watching;
-  content: string;
-  watchError: null;
-  writeChange: WriteChange;
-}
-
-export interface UseWatchTextFileErrorLike {
-  status:
-    | UseWatchTextFileStatus.Error
-    | UseWatchTextFileStatus.Moved
-    | UseWatchTextFileStatus.Deleted;
-  content: null;
-  watchError: string | null;
-  writeChange: null;
-}
-
+/**
+ * Returns the watching status and contents of a text file at the given `filePath`.  Also provides a `writeChange` function that enables you to write a change to the watched text file.
+ */
 export function useWatchTextFile({
   filePath,
 }: {

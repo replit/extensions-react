@@ -2,10 +2,16 @@ import { useContext } from "react";
 import { ReplitContext } from "src/state";
 
 /**
- * A React hook that initializes and passes the Replit API wrapper to a component.
+ * Returns the handshake status, connection error (if any), filePath, and Replit API wrapper.  Can only be used if wrapped in the <HandshakeProvider> component.
  */
 export function useReplit() {
-  const context = useContext(ReplitContext)
+  const context = useContext(ReplitContext);
 
-  return context;
+  if (context) {
+    return context;
+  } else {
+    throw new Error(
+      "useReplit must be used within the <HandshakeProvider> context provider component."
+    );
+  }
 }

@@ -1,4 +1,5 @@
 import replit, { HandshakeStatus } from "@replit/extensions";
+import { WriteChange, UseWatchTextFileStatus } from "@replit/extensions";
 
 export interface UseReplitReady {
   status: HandshakeStatus.Ready;
@@ -19,4 +20,28 @@ export interface UseReplitFailure {
   error: Error;
   filePath: null;
   replit: null;
+}
+
+export interface UseWatchTextFileLoading {
+  status: UseWatchTextFileStatus.Loading;
+  content: null;
+  watchError: null;
+  writeChange: null;
+}
+
+export interface UseWatchTextFileWatching {
+  status: UseWatchTextFileStatus.Watching;
+  content: string;
+  watchError: null;
+  writeChange: WriteChange;
+}
+
+export interface UseWatchTextFileErrorLike {
+  status:
+    | UseWatchTextFileStatus.Error
+    | UseWatchTextFileStatus.Moved
+    | UseWatchTextFileStatus.Deleted;
+  content: null;
+  watchError: string | null;
+  writeChange: null;
 }

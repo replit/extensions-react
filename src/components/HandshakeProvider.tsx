@@ -4,8 +4,10 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { ReplitContext } from "src/state";
 import { UseReplitFailure, UseReplitLoading, UseReplitReady } from "src/types";
 
-export function ExtensionProvider({ children }: { children: React.ReactNode }) {
-  const [status, setStatus] = useState<HandshakeStatus>(HandshakeStatus.Loading);
+export function HandshakeProvider({ children }: { children: React.ReactNode }) {
+  const [status, setStatus] = useState<HandshakeStatus>(
+    HandshakeStatus.Loading
+  );
   const [error, setError] = useState<Error | null>(null);
   const [filePath, setFilePath] = useState<string | null>(null);
   const runRef = useRef(0);

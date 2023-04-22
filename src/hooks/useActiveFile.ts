@@ -3,7 +3,7 @@ import { session } from "@replit/extensions";
 import { useReplit } from "./useReplit";
 
 /**
- * A React hook that returns the current file the user is focusing, if it exists in the filesystem.
+ * Returns the path to the current file the user is focusing, if it exists in the filesystem.
  */
 export default function useActiveFile() {
   const [file, setFile] = useState<string | null>(null);

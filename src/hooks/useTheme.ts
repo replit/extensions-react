@@ -2,6 +2,9 @@ import React from "react";
 import { HandshakeStatus, ThemeVersion } from "@replit/extensions";
 import { useReplit } from "./useReplit";
 
+/**
+ * Returns the information on the current user's theme including global tokens, syntax highlighting modifiers, and metadata.
+ */
 export default function useTheme() {
   const [theme, setTheme] = React.useState<ThemeVersion | null>(null);
 

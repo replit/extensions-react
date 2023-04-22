@@ -1,1 +1,1 @@
-export * from './ExtensionProvider'
+export * from "./HandshakeProvider";
