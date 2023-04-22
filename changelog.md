@@ -1,3 +1,7 @@
+### 0.1.0
+
+ - First initial Release of the React lib
+
 ### 0.1.0-beta.0
 
  - Trying things out with the `<HandshakeProvider>` component, added doc strings to the rest of the components.
