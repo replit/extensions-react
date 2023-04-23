@@ -5,7 +5,7 @@ import { ReplitContext } from "src/state";
 import { UseReplitFailure, UseReplitLoading, UseReplitReady } from "src/types";
 
 /**
- * Provides and establishes the initial handshake with the Replit workspace.
+ * Provides and establishes the initial handshake between the Replit workspace and your extension.
  */
 export function HandshakeProvider({ children }: { children: React.ReactNode }) {
   const [status, setStatus] = useState<HandshakeStatus>(
