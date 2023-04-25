@@ -1,10 +1,10 @@
 import React from "react";
-import { WriteChange, UseWatchTextFileStatus } from "@replit/extensions";
 import { useReplit } from "./useReplit";
 import {
   UseWatchTextFileErrorLike,
   UseWatchTextFileLoading,
   UseWatchTextFileWatching,
+  UseWatchTextFileStatus,
 } from "src/types";
 
 /**
