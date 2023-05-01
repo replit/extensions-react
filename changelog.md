@@ -1,4 +1,7 @@
-### 0.1.0
+### 1.1.0
+ - Make the react lib use the latest version
+
+### 1.0.0
 
  - First initial Release of the React lib
 
