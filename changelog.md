@@ -1,3 +1,6 @@
+### 1.1.1
+ - Fix a dependency tie-up
+
 ### 1.1.0
  - Make the react lib use the latest version
 
