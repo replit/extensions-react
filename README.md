@@ -1,3 +1,8 @@
+# Note
+
+We consolidated this under [replit/extensions](https://github.com/replit/extensions)
+
+
 # Replit Extensions API Client (React)
 
 The React Extensions API Client comes with a set of hooks and components that combine to make a blazingly fast and seamless developer experience.
