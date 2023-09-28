@@ -1,4 +1,4 @@
-# Note
+# ⚠️ Note
 
 We consolidated this under [replit/extensions](https://github.com/replit/extensions)
 
